@@ -1,139 +1,138 @@
 "use client";
 
-import { GitBranch, Briefcase, MessageCircle, Mail, ArrowUpRight } from "lucide-react";
+import { Zap, GitBranch, Briefcase, MessageCircle, Mail, ArrowUpRight } from "lucide-react";
 
-const footerSections = [
-  {
-    title: "Services",
-    links: [
-      "Software Development", "AI Development", "QA & Testing",
-      "SEO", "UI/UX Design", "Shopify & WordPress",
-    ],
-    href: "#services",
-  },
-  {
-    title: "Training",
-    links: [
-      "MERN Stack", "MEAN Stack", "AI-Assisted Coding",
-      "Vibe Coding", "QA Engineering", "WordPress",
-    ],
-    href: "#training",
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "Why Us", href: "#whyus" },
-      { label: "Contact", href: "#contact" },
-      { label: "Get a Quote", href: "#contact" },
-    ],
-    href: null,
-  },
-];
+const footerLinks = {
+  Services: [
+    "Software Development", "AI Development", "QA & Testing",
+    "SEO", "UI/UX Design", "ERP & CMS",
+  ],
+  Training: [
+    "MERN Stack", "MEAN Stack", "AI-Assisted Coding",
+    "Vibe Coding", "QA Engineering", "WordPress",
+  ],
+  Company: [
+    { label: "About Us", href: "#" },
+    { label: "Why Us", href: "#whyus" },
+    { label: "Contact", href: "#contact" },
+    { label: "Get a Quote", href: "#contact" },
+  ],
+};
 
 const socials = [
   { icon: GitBranch, href: "#", label: "GitHub" },
   { icon: Briefcase, href: "#", label: "LinkedIn" },
-  { icon: MessageCircle, href: "#", label: "Twitter / X" },
-  { icon: Mail, href: "mailto:[EMAIL_ADDRESS]", label: "Email" },
+  { icon: MessageCircle, href: "#", label: "Twitter" },
+  { icon: Mail, href: "mailto:hello@sevencore.io", label: "Email" },
 ];
 
-function scrollTo(href: string) {
-  if (!href || href === "#") return;
-  const el = document.querySelector(href);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-}
-
 export default function Footer() {
+  const scrollTo = (href: string) => {
+    if (href === "#") return;
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <footer className="relative bg-[#f8f8f6] border-t border-black/[0.06]">
-      {/* Top gradient line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-[#5b3ff8]/30 to-transparent" />
+    <footer className="relative w-full bg-[#080C18] border-t border-[#1E293B]">
+      {/* Top glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-[#7C3AED]/40 to-transparent" />
 
-      {/* Main content */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-16 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-14">
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Main footer content */}
+        <div className="py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand col */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
-            {/* Logo */}
-            <a
-              href="#"
-              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-              className="flex items-center gap-2.5 w-fit group"
-            >
-              <div className="relative w-7 h-7 flex-shrink-0">
-                <div className="absolute inset-0 rounded-full border border-[#5b3ff8]/40 group-hover:scale-125 transition-transform duration-500" />
-                <div className="absolute inset-[3px] rounded-full bg-gradient-to-br from-[#5b3ff8] to-[#00c2a8]" />
-                <div className="absolute inset-[6px] rounded-full bg-[#f8f8f6]" />
-              </div>
-              <span className="text-[15px] font-semibold tracking-tight text-[#0a0a0a]">
-                TechnersLab
-              </span>
+          <div className="lg:col-span-2 flex flex-col gap-5">
+            <a href="#" className="flex items-center gap-1.5 text-xl font-bold text-white w-fit">
+              <Zap size={20} className="text-[#7C3AED] fill-[#7C3AED]" />
+              <span>SevenCore</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] mb-3 ml-0.5" />
             </a>
-
-            <p className="text-[13.5px] text-[#a8a8a8] leading-relaxed max-w-[260px]">
-              We build software, train developers, and power businesses with AI. Your end-to-end tech partner.
+            <p className="text-[#94A3B8] text-sm leading-relaxed max-w-xs">
+              We build software, train developers, and power businesses with AI.
+              Your end-to-end tech partner.
             </p>
-
             {/* Socials */}
-            <div className="flex gap-2">
-              {socials.map((s) => (
+            <div className="flex gap-3">
+              {socials.map((social) => (
                 <a
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  className="w-8 h-8 rounded-xl bg-white border border-black/[0.07] flex items-center justify-center text-[#a8a8a8] hover:text-[#0a0a0a] hover:border-black/[0.15] hover:shadow-sm transition-all duration-200"
+                  key={social.label}
+                  href={social.href}
+                  aria-label={social.label}
+                  className="w-9 h-9 rounded-lg bg-[#111827] border border-[#1E293B] flex items-center justify-center text-[#94A3B8] hover:text-white hover:border-[#7C3AED]/40 transition-all duration-200"
                 >
-                  <s.icon size={13} />
+                  <social.icon size={15} />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Link columns */}
-          {footerSections.map((sec) => (
-            <div key={sec.title}>
-              <h4 className="text-[12px] font-semibold tracking-[0.1em] uppercase text-[#a8a8a8] mb-4">
-                {sec.title}
-              </h4>
-              <ul className="flex flex-col gap-2.5">
-                {sec.links.map((link) => {
-                  const isObj = typeof link === "object";
-                  const label = isObj ? link.label : link;
-                  const href = isObj ? link.href : sec.href ?? "#";
-                  return (
-                    <li key={label}>
-                      <button
-                        onClick={() => scrollTo(href)}
-                        className="text-[13px] text-[#6b6b6b] hover:text-[#0a0a0a] transition-colors duration-150 text-left flex items-center gap-1 group"
-                      >
-                        {label}
-                        {isObj && label === "Get a Quote" && (
-                          <ArrowUpRight
-                            size={11}
-                            className="text-[#a8a8a8] group-hover:text-[#0a0a0a] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-150"
-                          />
-                        )}
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
+          {/* Services */}
+          <div>
+            <h4 className="text-white font-semibold text-sm mb-4">Services</h4>
+            <ul className="flex flex-col gap-2.5">
+              {footerLinks.Services.map((item) => (
+                <li key={item}>
+                  <button
+                    onClick={() => scrollTo("#services")}
+                    className="text-[#94A3B8] hover:text-white text-sm transition-colors duration-200 text-left"
+                  >
+                    {item}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Training */}
+          <div>
+            <h4 className="text-white font-semibold text-sm mb-4">Training</h4>
+            <ul className="flex flex-col gap-2.5">
+              {footerLinks.Training.map((item) => (
+                <li key={item}>
+                  <button
+                    onClick={() => scrollTo("#training")}
+                    className="text-[#94A3B8] hover:text-white text-sm transition-colors duration-200 text-left"
+                  >
+                    {item}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="text-white font-semibold text-sm mb-4">Company</h4>
+            <ul className="flex flex-col gap-2.5">
+              {footerLinks.Company.map((item) => (
+                <li key={item.label}>
+                  <button
+                    onClick={() => scrollTo(item.href)}
+                    className="text-[#94A3B8] hover:text-white text-sm transition-colors duration-200 flex items-center gap-1 group"
+                  >
+                    {item.label}
+                    {item.label === "Get a Quote" && (
+                      <ArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    )}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-black/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-[12px] text-[#c8c8c8]">
-            © {new Date().getFullYear()} TechnersLab. All rights reserved.
+        <div className="border-t border-[#1E293B] py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-[#4B5563] text-xs">
+            © {new Date().getFullYear()} SevenCore. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex gap-6">
             {["Privacy Policy", "Terms of Service"].map((item) => (
               <a
                 key={item}
                 href="#"
-                className="text-[12px] text-[#c8c8c8] hover:text-[#6b6b6b] transition-colors duration-150"
+                className="text-[#4B5563] hover:text-[#94A3B8] text-xs transition-colors duration-200"
               >
                 {item}
               </a>

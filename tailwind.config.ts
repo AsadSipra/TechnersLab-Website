@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+<<<<<<< HEAD
         bg: "#ffffff",
         surface: "#f8f8f6",
         "surface-2": "#f0f0ec",
@@ -19,11 +20,23 @@ const config: Config = {
         accent: "#5b3ff8",
         "accent-2": "#00c2a8",
         "accent-3": "#ff6b35",
+=======
+        base: "#0A0E1A",
+        surface: "#111827",
+        "surface-2": "#1A2235",
+        primary: "#7C3AED",
+        "primary-light": "#A855F7",
+        highlight: "#06B6D4",
+        "text-main": "#F8FAFC",
+        "text-muted": "#94A3B8",
+        border: "#1E293B",
+>>>>>>> b6d26c6 (site ready for demo)
       },
       fontFamily: {
         sans: ["var(--font-inter)"],
         mono: ["var(--font-jetbrains)"],
       },
+<<<<<<< HEAD
       borderRadius: {
         "4xl": "2rem",
         "5xl": "2.5rem",
@@ -42,6 +55,8 @@ const config: Config = {
         "fade-up": "fade-up 0.6s ease forwards",
         "scale-in": "scale-in 0.5s ease forwards",
       },
+=======
+>>>>>>> b6d26c6 (site ready for demo)
     },
   },
   plugins: [],

@@ -5,19 +5,16 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains",
-  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: "TechnersLab — Software, AI & Training",
-  description:
-    "We build software, train developers, and power businesses with cutting-edge AI solutions.",
+  title: "SevenCore — Software, AI & Training",
+  description: "SevenCore builds software, trains developers, and powers businesses with AI.",
 };
 
 export default function RootLayout({
@@ -26,11 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${jetbrains.variable} font-sans bg-bg text-text antialiased`}
-        suppressHydrationWarning
-      >
+    <html lang="en">
+      <body className={`${inter.variable} ${jetbrains.variable} font-sans bg-base text-text-main antialiased`}>
         {children}
       </body>
     </html>

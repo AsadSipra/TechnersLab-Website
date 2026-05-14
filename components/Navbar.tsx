@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Menu, X, Zap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -16,7 +16,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -28,42 +28,31 @@ export default function Navbar() {
   };
 
   return (
-    <motion.header
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-          ? "bg-white/80 backdrop-blur-xl border-b border-black/[0.06] shadow-sm"
-          : "bg-transparent"
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+        ? "bg-[#111827]/90 backdrop-blur-md border-b border-[#1E293B] shadow-lg shadow-black/20"
+        : "bg-transparent"
         }`}
     >
-      <nav className="max-w-7xl mx-auto px-5 sm:px-8 h-[68px] flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <a
           href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-          className="flex items-center gap-2.5 group"
+          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+          className="flex items-center gap-1 text-xl font-bold text-white tracking-tight"
         >
-          <div className="relative w-7 h-7 flex-shrink-0">
-            <div className="absolute inset-0 rounded-full border border-[#5b3ff8]/40 group-hover:scale-125 transition-transform duration-500" />
-            <div className="absolute inset-[3px] rounded-full bg-gradient-to-br from-[#5b3ff8] to-[#00c2a8]" />
-            <div className="absolute inset-[6px] rounded-full bg-white" />
-          </div>
-          <span className="text-[15px] font-semibold tracking-tight text-[#0a0a0a]">
-            TechnersLab
-          </span>
+          <Zap size={20} className="text-[#7C3AED] fill-[#7C3AED]" />
+          <span>SevenCore</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] mb-3 ml-0.5" />
         </a>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center gap-0.5">
+        <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.href}>
               <button
                 onClick={() => scrollTo(link.href)}
-                className="px-4 py-2 text-[13.5px] font-medium text-[#6b6b6b] hover:text-[#0a0a0a] rounded-full hover:bg-black/[0.04] transition-all duration-200"
+                className="text-[#94A3B8] hover:text-white text-sm font-medium transition-colors duration-200 hover:text-[#A855F7]"
               >
                 {link.label}
               </button>
@@ -72,23 +61,22 @@ export default function Navbar() {
         </ul>
 
         {/* CTA */}
-        <div className="hidden md:flex items-center">
+        <div className="hidden md:flex items-center gap-4">
           <button
             onClick={() => scrollTo("#contact")}
-            className="group relative overflow-hidden bg-[#0a0a0a] text-white text-[13px] font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-[0_4px_20px_rgba(91,63,248,0.35)]"
+            className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-[#7C3AED]/30 active:scale-95"
           >
-            <span className="relative z-10 transition-colors duration-300">Get Free Quote</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#5b3ff8] to-[#00c2a8] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+            Get Free Quote
           </button>
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile Hamburger */}
         <button
-          className="md:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-black/[0.04] transition-colors text-[#6b6b6b]"
-          onClick={() => setMobileOpen((p) => !p)}
+          className="md:hidden text-[#94A3B8] hover:text-white transition-colors"
+          onClick={() => setMobileOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
 
@@ -96,28 +84,28 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            key="mobile-menu"
-            initial={{ opacity: 0, y: -8 }}
+            key="drawer"
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-white/95 backdrop-blur-xl border-b border-black/[0.06]"
+            className="md:hidden bg-[#111827] border-b border-[#1E293B]"
           >
-            <ul className="flex flex-col px-5 py-4 gap-1">
+            <ul className="flex flex-col px-4 py-4 gap-1">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => scrollTo(link.href)}
-                    className="w-full text-left px-4 py-3 text-[14px] font-medium text-[#6b6b6b] hover:text-[#0a0a0a] hover:bg-black/[0.03] rounded-xl transition-all duration-200"
+                    className="w-full text-left text-[#94A3B8] hover:text-white hover:bg-[#1A2235] px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200"
                   >
                     {link.label}
                   </button>
                 </li>
               ))}
-              <li className="mt-2 pt-2 border-t border-black/[0.06]">
+              <li className="mt-2">
                 <button
                   onClick={() => scrollTo("#contact")}
-                  className="w-full bg-[#0a0a0a] text-white text-[14px] font-medium px-4 py-3 rounded-xl"
+                  className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-sm font-semibold px-4 py-3 rounded-lg transition-all duration-200"
                 >
                   Get Free Quote
                 </button>
@@ -126,6 +114,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }
