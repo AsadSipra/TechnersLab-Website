@@ -43,8 +43,8 @@ export default function Footer() {
         <div className="py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand col */}
           <div className="lg:col-span-2 flex flex-col gap-5">
-            <a href="#" className="flex items-center gap-1.5 text-xl font-bold text-white w-fit">
-              <Zap size={20} className="text-[#7C3AED] fill-[#7C3AED]" />
+            <a href="#" className="flex items-center gap-2 text-xl font-bold text-white w-fit">
+              <img src="/logo.png" alt="TechnersLab Logo" className="w-8 h-8 object-contain rounded-lg" />
               <span>TechnersLab</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] mb-3 ml-0.5" />
             </a>

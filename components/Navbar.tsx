@@ -39,9 +39,9 @@ export default function Navbar() {
         <a
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-          className="flex items-center gap-1 text-xl font-bold text-white tracking-tight"
+          className="flex items-center gap-2 text-xl font-bold text-white tracking-tight"
         >
-          <Zap size={20} className="text-[#7C3AED] fill-[#7C3AED]" />
+          <img src="/logo.png" alt="TechnersLab Logo" className="w-8 h-8 object-contain rounded-lg" />
           <span>TechnersLab</span>
           <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] mb-3 ml-0.5" />
         </a>
