@@ -13,8 +13,8 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SevenCore — Software, AI & Training",
-  description: "SevenCore builds software, trains developers, and powers businesses with AI.",
+  title: "TechnersLab — Software, AI & Training",
+  description: "TechnersLab builds software, trains developers, and powers businesses with AI.",
 };
 
 export default function RootLayout({

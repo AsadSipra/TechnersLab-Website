@@ -42,7 +42,7 @@ export default function Navbar() {
           className="flex items-center gap-1 text-xl font-bold text-white tracking-tight"
         >
           <Zap size={20} className="text-[#7C3AED] fill-[#7C3AED]" />
-          <span>SevenCore</span>
+          <span>TechnersLab</span>
           <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] mb-3 ml-0.5" />
         </a>
 

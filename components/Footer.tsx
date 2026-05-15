@@ -23,7 +23,7 @@ const socials = [
   { icon: GitBranch, href: "#", label: "GitHub" },
   { icon: Briefcase, href: "#", label: "LinkedIn" },
   { icon: MessageCircle, href: "#", label: "Twitter" },
-  { icon: Mail, href: "mailto:hello@sevencore.io", label: "Email" },
+  { icon: Mail, href: "mailto:hello@TechnersLab.io", label: "Email" },
 ];
 
 export default function Footer() {
@@ -45,7 +45,7 @@ export default function Footer() {
           <div className="lg:col-span-2 flex flex-col gap-5">
             <a href="#" className="flex items-center gap-1.5 text-xl font-bold text-white w-fit">
               <Zap size={20} className="text-[#7C3AED] fill-[#7C3AED]" />
-              <span>SevenCore</span>
+              <span>TechnersLab</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] mb-3 ml-0.5" />
             </a>
             <p className="text-[#94A3B8] text-sm leading-relaxed max-w-xs">
@@ -125,7 +125,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-[#1E293B] py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[#4B5563] text-xs">
-            © {new Date().getFullYear()} SevenCore. All rights reserved.
+            © {new Date().getFullYear()} TechnersLab. All rights reserved.
           </p>
           <div className="flex gap-6">
             {["Privacy Policy", "Terms of Service"].map((item) => (
